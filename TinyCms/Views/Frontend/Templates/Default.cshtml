@@ -1,0 +1,16 @@
+﻿@using Newtonsoft.Json.Linq;
+@model dynamic
+
+@{
+    ViewData["Title"] = "My Virtual View";
+}
+
+<h2>My View</h2>
+
+<p>Hi @Model.Name. You entered from the Url: <strong>@Model.Path</strong></p>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
