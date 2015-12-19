@@ -1,0 +1,1 @@
+.\TinySql\TSM.EXE create con:"server=(localdb)\ProjectsV12;database=TinyCmsDB;Integrated Security=true" out:".\Models\TinyCmsDB.Metadata.json" class partial using:TinySql.Attributes,System namespace:TinyCms.Models folder:".\Models" wait

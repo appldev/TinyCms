@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{60F2CC7D-5EEF-4F88-A774-F4D5E01E5A3F}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TinyCmsDB", "TinyCmsDB\TinyCmsDB.sqlproj", "{9EB9C519-799D-4D27-9D84-70FB7A848B1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{BB17C6A2-672D-4788-B296-6674D4A2E285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyCms.Models", "TinyCms.Models\TinyCms.Models.csproj", "{EA9C4CC0-17FE-4FAA-8B72-DCB73E6F71E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{A7AE1CBF-0DFE-4658-9D13-23BA0034088F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyCms", "TinyCms\TinyCms.csproj", "{87F03CDE-046F-4578-90D7-79A933D75F60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EB9C519-799D-4D27-9D84-70FB7A848B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB9C519-799D-4D27-9D84-70FB7A848B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB9C519-799D-4D27-9D84-70FB7A848B1D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9EB9C519-799D-4D27-9D84-70FB7A848B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB9C519-799D-4D27-9D84-70FB7A848B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB9C519-799D-4D27-9D84-70FB7A848B1D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EA9C4CC0-17FE-4FAA-8B72-DCB73E6F71E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9C4CC0-17FE-4FAA-8B72-DCB73E6F71E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9C4CC0-17FE-4FAA-8B72-DCB73E6F71E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9C4CC0-17FE-4FAA-8B72-DCB73E6F71E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87F03CDE-046F-4578-90D7-79A933D75F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87F03CDE-046F-4578-90D7-79A933D75F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87F03CDE-046F-4578-90D7-79A933D75F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87F03CDE-046F-4578-90D7-79A933D75F60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9EB9C519-799D-4D27-9D84-70FB7A848B1D} = {60F2CC7D-5EEF-4F88-A774-F4D5E01E5A3F}
+		{EA9C4CC0-17FE-4FAA-8B72-DCB73E6F71E5} = {BB17C6A2-672D-4788-B296-6674D4A2E285}
+		{87F03CDE-046F-4578-90D7-79A933D75F60} = {A7AE1CBF-0DFE-4658-9D13-23BA0034088F}
+	EndGlobalSection
+EndGlobal
