@@ -22,7 +22,15 @@ namespace TinyCms
                init = loadCache;
                _key = KeyName;
                IEqualityComparer<TKey> compare = typeof(TKey) == typeof(string) ? (IEqualityComparer<TKey>)StringComparer.OrdinalIgnoreCase : EqualityComparer<TKey>.Default;
-               dict = new ConcurrentDictionary<TKey, T>(init.Dictionary<TKey, T>(_key), compare);
+               if (init != null)
+               {
+                   dict = new ConcurrentDictionary<TKey, T>(init.Dictionary<TKey, T>(_key), compare);
+               }
+               else
+               {
+                   dict = new ConcurrentDictionary<TKey, T>(compare);
+               }
+               
            });
         }
 
@@ -42,6 +50,18 @@ namespace TinyCms
             }
         }
 
+        public T Add(TKey key, T item)
+        {
+            return dict.AddOrUpdate(key, item, (k, existing) =>
+            {
+                return item;
+            });
+        }
+
+        public bool Has(TKey key)
+        {
+            return this.dict.ContainsKey(key);
+        }
         public T Get(TKey key, T DefaultValue = default(T))
         {
             T value = this[key];
@@ -141,6 +161,10 @@ namespace TinyCms
     {
         public static PageHostCache Hosts = new PageHostCache();
         public static PageCache Pages = new PageCache();
+
+        public static CmsCache<Guid, DataType> DataTypes = new CmsCache<Guid, DataType>();
+
+
         public static async void Initialize()
         {
 
@@ -153,6 +177,7 @@ namespace TinyCms
                 .Builder();
 
             await Hosts.Initialize(builder, "Name");
+            await DataTypes.Initialize(null, "Id");
         }
 
 

@@ -50,6 +50,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cms\Caching.cs" />
+    <Compile Include="Cms\ContentObject.cs" />
+    <Compile Include="Cms\TinyCmsPageModel.cs" />
+    <Compile Include="Factories\DataTypefactory.cs" />
     <Compile Include="Interfaces\ICachedPage.cs" />
     <Compile Include="Models\AllLibraryItems.cs" />
     <Compile Include="Models\AllPageFolders.cs" />
@@ -57,6 +61,7 @@
     <Compile Include="Models\AllUnpublishedPages.cs" />
     <Compile Include="Models\DataType.cs" />
     <Compile Include="Models\EditorType.cs" />
+    <Compile Include="Models\Extensions\DataType.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Models\FieldType.cs" />
     <Compile Include="Models\Library.cs" />

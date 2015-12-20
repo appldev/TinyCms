@@ -20,9 +20,27 @@ namespace TinyCms
                 );
 
             routes.MapRoute(
-                name: "cms",
+                name: "CmsCultureRoute",
+                url: "{culture}/{*path}",
+                defaults: new {
+                    culture = "en-US",
+                    controller = "VirtualPage",
+                    action = "Index" },
+                constraints: new
+                {
+                    culture = "[a-z]{2}-[a-z]{2}"
+                }
+            );
+
+            routes.MapRoute(
+                name: "CmsNonCultureRoute",
                 url: "{*path}",
-                defaults: new { controller = "VirtualPage", action = "Index" }
+                defaults: new
+                {
+                    culture = "en-US",
+                    controller = "VirtualPage",
+                    action = "Index"
+                }
             );
 
             //routes.MapRoute(

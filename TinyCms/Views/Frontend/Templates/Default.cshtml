@@ -1,4 +1,7 @@
 ﻿@using Newtonsoft.Json.Linq;
+@functions {
+
+}
 @model dynamic
 
 @{
@@ -8,6 +11,12 @@
 <h2>My View</h2>
 
 <p>Hi @Model.Name. You entered from the Url: <strong>@Model.Path</strong></p>
+
+<p>
+    <code>
+        @Html.Raw(Model.json)
+    </code> 
+</p>
 
 @section Scripts {
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
