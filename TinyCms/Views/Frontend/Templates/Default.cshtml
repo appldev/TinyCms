@@ -11,7 +11,8 @@
 <h2>My View</h2>
 
 <p>Hi @Model.Name. You entered from the Url: <strong>@Model.Path</strong></p>
-
+<p>The culture is: @Model.Culture</p>
+<p>This is a Url: @Url.Content("~/MySubFolder/my-sub-page")</p>
 <p>
     <code>
         @Html.Raw(Model.json)

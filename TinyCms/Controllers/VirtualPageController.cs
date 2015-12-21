@@ -25,12 +25,14 @@ namespace TinyCms.Controllers
             m.Name = "Michael";
             m.Path = path;
             m.Snippet = snippet;
+            m.Culture = culture;
             m.json = Newtonsoft.Json.JsonConvert.SerializeObject(m);
             string s = Newtonsoft.Json.JsonConvert.SerializeObject(m);
             TinyCmsPageModel model = Newtonsoft.Json.JsonConvert.DeserializeObject<TinyCmsPageModel>(s);
 
             
-            return View("~/views/frontend/templates/default.cshtml",model);
+            // return View("~/views/frontend/templates/default.cshtml",model);
+            return View("~/" + Guid.NewGuid().ToString() + "")
         }
     }
 }

@@ -20,6 +20,7 @@ namespace TinyCms
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             TinyCmsStartup.Startup();
             Caching.Initialize();
+            System.Web.Hosting.HostingEnvironment.RegisterVirtualPathProvider(new Providers.TinyCmsVirtualPathProvider());
         }
     }
 }
