@@ -7,9 +7,9 @@ namespace TinyCms.Models
 {
 		public String  Description { get; set; }
 
-		public Nullable<Int32>  folderlevel { get; set; }
+		public Nullable<Int32>  FolderLevel { get; set; }
 
-		public String  folderpath { get; set; }
+		public String  FolderPath { get; set; }
 
 		public Nullable<Guid>  Id { get; set; }
 

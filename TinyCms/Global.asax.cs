@@ -18,9 +18,9 @@ namespace TinyCms
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            TinyCmsStartup.Startup();
-            Caching.Initialize();
-            System.Web.Hosting.HostingEnvironment.RegisterVirtualPathProvider(new Providers.TinyCmsVirtualPathProvider());
+            // TinyCmsStartup.Startup();
+            // Caching.Initialize();
+            // System.Web.Hosting.HostingEnvironment.RegisterVirtualPathProvider(new Providers.TinyCmsVirtualPathProvider());
         }
     }
 }

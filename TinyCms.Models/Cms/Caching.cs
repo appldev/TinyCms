@@ -84,7 +84,7 @@ namespace TinyCms
             PageHost host = this[HostName];
             if (host == null)
             {
-                host = this["*"];
+                host = this["Default"];
             }
             return host.Id;
         }
@@ -107,21 +107,21 @@ namespace TinyCms
 
     public class PageCache
     {
-        private ConcurrentDictionary<Guid, CmsCache<string, AllPublishedPages>> pub = new ConcurrentDictionary<Guid, CmsCache<string, AllPublishedPages>>();
-        private ConcurrentDictionary<Guid, CmsCache<string, AllUnpublishedPages>> unpub = new ConcurrentDictionary<Guid, CmsCache<string, AllUnpublishedPages>>();
+        private ConcurrentDictionary<Guid, CmsCache<string, PublishedPage>> pub = new ConcurrentDictionary<Guid, CmsCache<string, PublishedPage>>();
+        private ConcurrentDictionary<Guid, CmsCache<string, Page>> unpub = new ConcurrentDictionary<Guid, CmsCache<string, Page>>();
 
 
-        public AllPublishedPages GetPublished(int LCID, string Path, string Host)
+        public PublishedPage GetPublished(int LCID, string Path, string Host)
         {
             Guid g = Caching.Hosts.Get(Host);
-            CmsCache<string, AllPublishedPages> cache = pub[g];
+            CmsCache<string, PublishedPage> cache = pub[g];
             if (cache == null)
             {
-                cache = new CmsCache<string, AllPublishedPages>();
+                cache = new CmsCache<string, PublishedPage>();
                 SqlBuilder builder = SqlBuilder.Select()
-                    .From("AllPublishedPages")
+                    .From("PublishedPage")
                     .AllColumns()
-                    .Where<Guid>("AllPublishedPages", "PageHostId", SqlOperators.Equal, g)
+                    .Where<Guid>("PublishedPage", "PageHostId", SqlOperators.Equal, g)
                     .Builder();
 
                 cache.Initialize(builder, "fullpath");
@@ -133,17 +133,17 @@ namespace TinyCms
             return cache[Path];
         }
 
-        public AllUnpublishedPages GetUnPublished(int LCID, string Path, string Host)
+        public Page GetUnPublished(int LCID, string Path, string Host)
         {
             Guid g = Caching.Hosts.Get(Host);
-            CmsCache<string, AllUnpublishedPages> cache = unpub[g];
+            CmsCache<string, Page> cache = unpub[g];
             if (cache == null)
             {
-                cache = new CmsCache<string, AllUnpublishedPages>();
+                cache = new CmsCache<string, Page>();
                 SqlBuilder builder = SqlBuilder.Select()
-                    .From("AllUnpublishedPages")
+                    .From("Page")
                     .AllColumns()
-                    .Where<Guid>("AllUnpublishedPages", "PageHostId", SqlOperators.Equal, g)
+                    .Where<Guid>("Page", "PageHostId", SqlOperators.Equal, g)
                     .Builder();
 
                 cache.Initialize(builder, "fullpath");

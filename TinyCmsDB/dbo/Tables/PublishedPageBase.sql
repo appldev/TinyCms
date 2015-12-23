@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[PublishedPage] (
+﻿CREATE TABLE [dbo].[PublishedPageBase] (
     [Name]           VARCHAR (100)    NOT NULL,
     [Culture]        VARCHAR (10)     CONSTRAINT [DF_PublishedPage_LCID] DEFAULT ((1030)) NOT NULL,
     [PageFolderId]   UNIQUEIDENTIFIER NOT NULL,
@@ -10,10 +10,10 @@
     [RequireSsl]     BIT              CONSTRAINT [DF_PublishedPage_RequireSsl] DEFAULT ((0)) NOT NULL,
     [PageSecurityId] INT              CONSTRAINT [DF_PublishedPage_PageSecurityId] DEFAULT ((0)) NOT NULL,
     [PageAudienceId] INT              NULL,
-    CONSTRAINT [PK_PublishedPage] PRIMARY KEY CLUSTERED ([PageFolderId] ASC, [Name] ASC, [Culture] ASC),
-    CONSTRAINT [FK_PublishedPage_PageAudience] FOREIGN KEY ([PageAudienceId]) REFERENCES [dbo].[PageAudience] ([Id]),
-    CONSTRAINT [FK_PublishedPage_PageFolder] FOREIGN KEY ([PageTypeId]) REFERENCES [dbo].[PageFolder] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_PublishedPage_PageSecurity] FOREIGN KEY ([PageSecurityId]) REFERENCES [dbo].[PageSecurity] ([Id]),
-    CONSTRAINT [FK_PublishedPage_PageType] FOREIGN KEY ([PageTypeId], [Culture]) REFERENCES [dbo].[PageType] ([Id], [Culture]) ON UPDATE CASCADE
+    CONSTRAINT [PK_PublishedPageBase] PRIMARY KEY CLUSTERED ([PageFolderId] ASC, [Name] ASC, [Culture] ASC),
+    CONSTRAINT [FK_PublishedPageBase_PageAudience] FOREIGN KEY ([PageAudienceId]) REFERENCES [dbo].[PageAudience] ([Id]),
+    CONSTRAINT [FK_PublishedPageBase_PageFolderBase] FOREIGN KEY ([PageTypeId]) REFERENCES [dbo].[PageFolderBase] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PublishedPageBase_PageSecurity] FOREIGN KEY ([PageSecurityId]) REFERENCES [dbo].[PageSecurity] ([Id]),
+    CONSTRAINT [FK_PublishedPageBase_PageType] FOREIGN KEY ([PageTypeId], [Culture]) REFERENCES [dbo].[PageType] ([Id], [Culture]) ON UPDATE CASCADE
 );
 

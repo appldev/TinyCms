@@ -12,6 +12,9 @@ namespace TinyCms.Models
 		[PK]
 		public Guid  Id { get; set; }
 
+		[FK("DataTypeBase","Id","dbo","FK_PageType_DataTypeBase")]
+		public Nullable<Guid>  DataTypeId { get; set; }
+
 		public String  Html { get; set; }
 
 		public String  Name { get; set; }

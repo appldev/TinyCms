@@ -55,9 +55,6 @@
     <Compile Include="Cms\TinyCmsPageModel.cs" />
     <Compile Include="Factories\DataTypefactory.cs" />
     <Compile Include="Interfaces\ICachedPage.cs" />
-    <Compile Include="Models\AllPageFolders.cs" />
-    <Compile Include="Models\AllPublishedPages.cs" />
-    <Compile Include="Models\AllUnpublishedPages.cs" />
     <Compile Include="Models\DataType.cs" />
     <Compile Include="Models\DataTypeBase.cs" />
     <Compile Include="Models\DataTypeScript.cs" />
@@ -77,12 +74,15 @@
     <Compile Include="Models\LibraryType.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\PageAudience.cs" />
+    <Compile Include="Models\PageBase.cs" />
     <Compile Include="Models\PageFolder.cs" />
+    <Compile Include="Models\PageFolderBase.cs" />
     <Compile Include="Models\PageHost.cs" />
     <Compile Include="Models\PageLayout.cs" />
     <Compile Include="Models\PageSecurity.cs" />
     <Compile Include="Models\PageType.cs" />
     <Compile Include="Models\PublishedPage.cs" />
+    <Compile Include="Models\PublishedPageBase.cs" />
     <Compile Include="Models\RenderType.cs" />
     <Compile Include="Models\ReservedRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
