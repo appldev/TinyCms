@@ -8,6 +8,6 @@ namespace TinyCms.Models
 {
     public partial class DataType
     {
-       public List<Field> Fields { get; set; }
+       public List<FieldBase> Fields { get; set; }
     }
 }

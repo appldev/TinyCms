@@ -44,8 +44,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TinySql, Version=0.6.5830.20582, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TinySql.0.6.3-beta\lib\net45\TinySql.dll</HintPath>
+    <Reference Include="TinySql, Version=0.6.4.15767, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TinySql.0.6.6-rc1\lib\net45\TinySql.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -55,18 +55,23 @@
     <Compile Include="Cms\TinyCmsPageModel.cs" />
     <Compile Include="Factories\DataTypefactory.cs" />
     <Compile Include="Interfaces\ICachedPage.cs" />
-    <Compile Include="Models\AllLibraryItems.cs" />
     <Compile Include="Models\AllPageFolders.cs" />
     <Compile Include="Models\AllPublishedPages.cs" />
     <Compile Include="Models\AllUnpublishedPages.cs" />
     <Compile Include="Models\DataType.cs" />
+    <Compile Include="Models\DataTypeBase.cs" />
     <Compile Include="Models\EditorType.cs" />
+    <Compile Include="Models\Extensions\LibraryFolder.cs" />
+    <Compile Include="Models\Extensions\LibraryItem.cs" />
     <Compile Include="Models\Extensions\DataType.cs" />
-    <Compile Include="Models\Field.cs" />
+    <Compile Include="Models\Extensions\Library.cs" />
+    <Compile Include="Models\FieldBase.cs" />
     <Compile Include="Models\FieldType.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\LibraryFolder.cs" />
+    <Compile Include="Models\LibraryFolderBase.cs" />
     <Compile Include="Models\LibraryItem.cs" />
+    <Compile Include="Models\LibraryItemBase.cs" />
     <Compile Include="Models\LibraryType.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\PageAudience.cs" />
@@ -81,12 +86,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="create-metadata.bat" />
-    <Content Include="Models\TinyCmsDB.Metadata.json" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
     <Content Include="TinySql\Microsoft.SqlServer.ConnectionInfo.dll" />
     <Content Include="TinySql\Microsoft.SqlServer.Dmf.dll" />
     <Content Include="TinySql\Microsoft.SqlServer.Management.Sdk.Sfc.dll" />
@@ -97,7 +96,11 @@
     <Content Include="TinySql\TinySql.dll" />
     <Content Include="TinySql\TinySql.Metadata.Sql.dll" />
     <Content Include="TinySql\TSM.exe" />
+    <None Include="create-metadata.bat" />
+    <Content Include="Models\TinyCmsDB.Metadata.json" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

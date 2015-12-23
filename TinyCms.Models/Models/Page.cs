@@ -7,11 +7,12 @@ namespace TinyCms.Models
 {
 		[FK("PageType","Id","dbo","FK_Page_PageType")]
 		[PK]
-		public Int32  LCID { get; set; }
+		public String  Culture { get; set; }
 
 		[PK]
 		public String  Name { get; set; }
 
+		[FK("PageFolder","Id","dbo","FK_Page_PageFolder")]
 		[PK]
 		public Guid  PageFolderId { get; set; }
 

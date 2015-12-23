@@ -28,7 +28,7 @@ namespace TinyCms.Models.Factories
 
             DataSet ds = builder.DataSet();
             DataType dataType = builder.List<DataType>(ds.Tables[0], false, true).First();
-            dataType.Fields = builder.List<Field>(ds.Tables[1], false, true);
+            dataType.Fields = builder.List<FieldBase>(ds.Tables[1], false, true);
             
 
             return Caching.DataTypes.Add(dataType.Id, dataType);

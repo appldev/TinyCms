@@ -5,13 +5,17 @@ using TinySql.Attributes;
 namespace TinyCms.Models
 {	public partial class AllPublishedPages
 {
+		public String  Culture { get; set; }
+
 		public String  Description { get; set; }
 
-		public String  fullpath { get; set; }
+		public String  FilePath { get; set; }
+
+		public Nullable<Int32>  FolderLevel { get; set; }
+
+		public String  FullPath { get; set; }
 
 		public Guid  Id { get; set; }
-
-		public Int32  LCID { get; set; }
 
 		public String  Model { get; set; }
 
@@ -20,6 +24,8 @@ namespace TinyCms.Models
 		public Nullable<Int32>  PageAudienceId { get; set; }
 
 		public Guid  PageFolderId { get; set; }
+
+		public Guid  PageHostId { get; set; }
 
 		public Int32  PageSecurityId { get; set; }
 

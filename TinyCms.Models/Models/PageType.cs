@@ -5,12 +5,12 @@ using TinySql.Attributes;
 namespace TinyCms.Models
 {	public partial class PageType
 {
-		[PK]
-		public Guid  Id { get; set; }
-
 		[FK("PageLayout","Id","dbo","FK_PageType_PageLayout")]
 		[PK]
-		public Int32  LCID { get; set; }
+		public String  Culture { get; set; }
+
+		[PK]
+		public Guid  Id { get; set; }
 
 		public String  Html { get; set; }
 

@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using TinySql.Attributes;
 
 namespace TinyCms.Models
-{	public partial class Field
+{	public partial class FieldBase
 {
 		[PK]
 		public Int32  Id { get; set; }
 
-		[FK("DataType","Id","dbo","FK_Field_DataType")]
+		[FK("DataTypeBase","Id","dbo","FK_FieldBase_DataTypeBase")]
 		public Guid  DataTypeId { get; set; }
 
 		public String  DefaultValue { get; set; }
 
 		public String  DisplayName { get; set; }
 
-		[FK("EditorType","Id","dbo","FK_Field_EditorType")]
+		[FK("EditorType","Id","dbo","FK_FieldBase_EditorType")]
 		public Int32  EditorTypeId { get; set; }
 
-		[FK("FieldType","Id","dbo","FK_Field_FieldType")]
+		[FK("FieldType","Id","dbo","FK_FieldBase_FieldType")]
 		public Int32  FieldTypeId { get; set; }
 
 		public String  HelpText { get; set; }

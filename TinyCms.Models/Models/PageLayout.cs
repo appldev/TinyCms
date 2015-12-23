@@ -6,10 +6,10 @@ namespace TinyCms.Models
 {	public partial class PageLayout
 {
 		[PK]
-		public Guid  Id { get; set; }
+		public String  Culture { get; set; }
 
 		[PK]
-		public Int32  LCID { get; set; }
+		public Guid  Id { get; set; }
 
 		[PK]
 		public Guid  PageHostId { get; set; }

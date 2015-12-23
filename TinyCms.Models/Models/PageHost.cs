@@ -8,9 +8,11 @@ namespace TinyCms.Models
 		[PK]
 		public Guid  Id { get; set; }
 
-		public Int32  LCID { get; set; }
+		public String  Culture { get; set; }
 
 		public String  Name { get; set; }
+
+		public String  ViewPath { get; set; }
 
 	}
 }

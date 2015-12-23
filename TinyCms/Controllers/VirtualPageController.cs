@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using TinyCms.Models.Cms;
@@ -14,9 +15,6 @@ namespace TinyCms.Controllers
         public ActionResult Index(string culture, string path)
         {
             path = "/" + path;
-            JObject o = new JObject();
-            o.Add("Name", "Michael");
-            o.Add("Path", path);
             dynamic m = new TinyCmsPageModel();
             var snippet = new ContentObject();
             snippet.Field("url", path);
@@ -31,8 +29,9 @@ namespace TinyCms.Controllers
             TinyCmsPageModel model = Newtonsoft.Json.JsonConvert.DeserializeObject<TinyCmsPageModel>(s);
 
             
-            // return View("~/views/frontend/templates/default.cshtml",model);
-            return View("~/" + Guid.NewGuid().ToString() + "")
+
+            return View("~/views/frontend/templates/default.cshtml",model);
+            // return View("~/" + Guid.NewGuid().ToString() + "");
         }
     }
 }

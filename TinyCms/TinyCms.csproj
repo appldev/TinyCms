@@ -108,8 +108,8 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="TinySql, Version=0.6.4.34608, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TinySql.0.6.5-beta\lib\net45\TinySql.dll</HintPath>
+    <Reference Include="TinySql, Version=0.6.4.15767, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TinySql.0.6.6-rc1\lib\net45\TinySql.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
@@ -271,7 +271,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Code\" />
-    <Folder Include="Views\MultiCultureBase\" />
     <Folder Include="Views\VirtualPage\" />
   </ItemGroup>
   <ItemGroup>
