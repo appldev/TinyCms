@@ -60,6 +60,7 @@
     <Compile Include="Models\AllUnpublishedPages.cs" />
     <Compile Include="Models\DataType.cs" />
     <Compile Include="Models\DataTypeBase.cs" />
+    <Compile Include="Models\DataTypeScript.cs" />
     <Compile Include="Models\EditorType.cs" />
     <Compile Include="Models\Extensions\LibraryFolder.cs" />
     <Compile Include="Models\Extensions\LibraryItem.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Models\FieldBase.cs" />
     <Compile Include="Models\FieldType.cs" />
     <Compile Include="Models\Library.cs" />
+    <Compile Include="Models\LibraryBase.cs" />
     <Compile Include="Models\LibraryFolder.cs" />
     <Compile Include="Models\LibraryFolderBase.cs" />
     <Compile Include="Models\LibraryItem.cs" />
