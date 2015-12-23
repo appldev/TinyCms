@@ -27,7 +27,7 @@ namespace TinyCms.Models
 		[FK("PageSecurity","Id","dbo","FK_PublishedPage_PageSecurity")]
 		public Int32  PageSecurityId { get; set; }
 
-		[FK("PageType","Id","dbo","FK_PublishedPage_PageType")]
+		[FK("PageFolder","Id","dbo","FK_PublishedPage_PageFolder")]
 		public Nullable<Guid>  PageTypeId { get; set; }
 
 		public Boolean  RequireSsl { get; set; }

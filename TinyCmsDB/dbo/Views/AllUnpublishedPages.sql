@@ -1,8 +1,12 @@
-﻿CREATE VIEW dbo.AllUnpublishedPages
+﻿
+
+CREATE VIEW [dbo].[AllUnpublishedPages]
 AS
-SELECT        p.Name, p.LCID, p.PageFolderId, p.Id, p.Title, p.Description, p.Model, p.PageTypeId, p.RequireSsl, p.PageSecurityId, p.PageAudienceId, CAST(p.LCID AS varchar) + folder.folderpath + p.Name AS fullpath
-FROM            dbo.Page AS p INNER JOIN
-                         dbo.AllPageFolders AS folder ON p.PageFolderId = folder.Id
+SELECT          p.Name, p.Culture, ph.Id AS PageHostId, p.PageFolderId, p.Id, p.Title, p.Description, p.Model, p.PageTypeId, p.RequireSsl, p.PageSecurityId, p.PageAudienceId, folder.folderlevel as FolderLevel, '/' + p.Culture + folder.folderpath + p.Name AS FullPath, COALESCE(ph.ViewPath + 'templates/' + p.Culture + '/' + pt.Name, ph.ViewPath + p.Culture + folder.folderpath + p.Name + '.cshtml') AS FilePath
+FROM            dbo.Page AS p 
+INNER JOIN		dbo.AllPageFolders AS folder ON p.PageFolderId = folder.Id
+INNER JOIN		dbo.PageHost AS ph ON folder.PageHostId = ph.Id AND ph.Culture = p.Culture
+LEFT JOIN      dbo.PageType AS pt ON (p.PageTypeId = pt.Id AND p.Culture = pt.Culture)
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'AllUnpublishedPages';
 

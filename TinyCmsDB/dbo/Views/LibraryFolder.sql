@@ -8,7 +8,7 @@ WITH Folders AS (SELECT        l.Id, l.ParentId, l.LibraryId, l.Name, l.Title, l
                                        SELECT        f.Id, f.ParentId, f.LibraryId, f.Name, f.Title, f.Description, parent.folderlevel + 1 AS FolderLevel, CAST(parent.folderpath + f.Name + '/' AS varchar(400)) AS FolderPath
                                        FROM            dbo.LibraryFolderBase AS f INNER JOIN
                                                                 Folders AS parent ON parent.Id = f.ParentId)
-    SELECT        TOP (100) PERCENT Id, ParentId, LibraryId, Name, Title, Description, folderlevel, folderpath
+    SELECT        TOP (100) PERCENT Id, ParentId, LibraryId, Name, Title, Description, FolderLevel, FolderPath
      FROM            Folders AS AllFolders
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'LibraryFolder';

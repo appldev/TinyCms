@@ -9,15 +9,15 @@ namespace TinyCms.Models
 
 		public String  FilePath { get; set; }
 
-		public Nullable<Int32>  folderlevel { get; set; }
+		public Nullable<Int32>  FolderLevel { get; set; }
 
 		public String  FolderName { get; set; }
 
 		public String  FolderPath { get; set; }
 
-		public Nullable<Guid>  Id { get; set; }
+		public Guid  Id { get; set; }
 
-		public Nullable<Guid>  LibraryFolderId { get; set; }
+		public Guid  LibraryFolderId { get; set; }
 
 		public Nullable<Guid>  LibraryId { get; set; }
 

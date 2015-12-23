@@ -10,7 +10,7 @@ namespace TinyCms.Models
 
 		public String  Description { get; set; }
 
-		[FK("Library","Id","dbo","FK_LibraryFolder_Library")]
+		[FK("LibraryBase","Id","dbo","FK_LibraryFolder_LibraryBase")]
 		public Guid  LibraryId { get; set; }
 
 		public String  Name { get; set; }

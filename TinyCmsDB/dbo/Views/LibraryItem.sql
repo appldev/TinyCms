@@ -1,7 +1,8 @@
 ﻿
+
 CREATE VIEW [dbo].[LibraryItem]
 AS
-SELECT li.Id, li.Name, li.Title, li.Description, lf.LibraryId, li.LibraryFolderId, lf.Name AS FolderName, lf.folderlevel AS FolderLevel, lf.FolderPath AS FolderPath, CAST(lf.FolderPath + li.Name as varchar(800)) AS FilePath
+SELECT li.Id, li.Name, li.Title, li.Description, lf.LibraryId, li.LibraryFolderId, lf.Name AS FolderName, lf.FolderLevel, lf.FolderPath, CAST(lf.FolderPath + li.Name as varchar(800)) AS FilePath
  FROM LibraryFolder lf
  INNER JOIN LibraryItemBase li ON (li.LibraryFolderId = lf.Id)
 GO

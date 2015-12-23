@@ -5,13 +5,13 @@ using TinySql.Attributes;
 namespace TinyCms.Models
 {	public partial class Library
 {
-		[PK]
-		public Guid  Id { get; set; }
-
 		public String  Description { get; set; }
 
-		[FK("LibraryType","Id","dbo","FK_Library_LibraryType")]
+		public Guid  Id { get; set; }
+
 		public Int32  LibraryTypeId { get; set; }
+
+		public String  LibraryTypeName { get; set; }
 
 		public String  Name { get; set; }
 

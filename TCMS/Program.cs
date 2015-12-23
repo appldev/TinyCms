@@ -117,7 +117,7 @@ namespace TCMS
             {
                 foreach (System.IO.FileInfo fi in dir.GetFiles(pattern))
                 {
-                    if (lib.Items.Any(x => x.folderlevel == FolderLevel && (x.FolderName.Equals(dir.Name, StringComparison.OrdinalIgnoreCase) || x.LibraryFolderId.Equals(FolderId)) && x.Name.Equals(fi.Name, StringComparison.OrdinalIgnoreCase)))
+                    if (lib.Items.Any(x => x.FolderLevel == FolderLevel && (x.FolderName.Equals(dir.Name, StringComparison.OrdinalIgnoreCase) || x.LibraryFolderId.Equals(FolderId)) && x.Name.Equals(fi.Name, StringComparison.OrdinalIgnoreCase)))
                     {
                         Console.WriteLine("Skipping {0}. It already exists", fi.Name);
                         continue;
