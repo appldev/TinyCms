@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinyCms;
 using TinyCms.Models;
 
 namespace TCMS
@@ -52,9 +53,25 @@ namespace TCMS
             }
         }
 
-        private static void BuildWebPages()
+        private static void BuildWebPages(List<StartArg> Commands)
         {
-            // step 1: Register PageHost
+            // step 1: Get PageHost
+            PageHost Host = PageHost.ByName(Commands.Get<string>("Host"));
+            
+            // step 2: Load existing pages and folders
+            List<PageFolder> folders = PageFolder.ByHost(Host.Id);
+            List<Page> unpub = Page.ByHost(Host.Id);
+            List<PublishedPage> pub = PublishedPage.ByHost(Host.Id);
+
+            string Culture = Commands.Get<string>("Culture", Host.Culture).ToLower();
+            string ViewRoot = Commands.Get<string>("ViewRoot");
+            bool Move = Commands.Get<int>("Move", 0) == 1;
+            string ReserveRoute = Commands.Get<string>("ReserverRoute");
+            string Path = "/";
+            PageFolder CurrentFolder = folders.First(x => x.folderpath.Equals(Path));
+            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(ViewRoot);
+
+
 
             // step 2: Create folder structure
             // 2a: create 'Templates' folder
@@ -73,6 +90,22 @@ namespace TCMS
         }
 
 
+        private static void BuildPageDirectory(PageHost Host, string Culture, List<PageFolder> Folders, List<Page> UnpublishedPages, List<PublishedPage> PublishedPages,bool Move, string ReserveRoutes, string Path, PageFolder CurrentFolder, System.IO.DirectoryInfo CurrentDir, int FolderIndex = 0, int FolderLevel = 0)
+        {
+            Console.WriteLine("Building Path {0} from the Directory at {1}", Path, CurrentDir.FullName);
+            if (Path != "/")
+            {
+                if (Folders.Any(x => x.Name.Equals(CurrentDir.Name, StringComparison.OrdinalIgnoreCase) && x.folderlevel == FolderLevel))
+                {
+
+                }
+            }
+            foreach (System.IO.FileInfo fi in CurrentDir.GetFiles("*.cshtml"))
+            {
+
+            }
+        }
+
         private static void BuildLibrary(List<StartArg> Commands)
         {
             Guid LibraryId = new Guid(Commands.Get<string>("Library"));
@@ -80,7 +113,7 @@ namespace TCMS
             string Filter = Commands.Get<string>("Filter", "*.*");
             string basePath = Commands.Get<string>("Path");
             System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(basePath);
-            Guid RootId = lib.Folders.First(x => x.folderlevel == 0).Id.Value;
+            Guid RootId = lib.Folders.First(x => x.FolderLevel == 0).Id.Value;
             BuildLibraryDirectory(lib, dir, Filter, 0, RootId, RootId);
         }
 
@@ -90,7 +123,7 @@ namespace TCMS
             if (FolderLevel > 0)
             {
                 // Check for folder existance
-                if (!lib.Folders.Any(x => x.Name.Equals(dir.Name, StringComparison.InvariantCultureIgnoreCase) && x.folderlevel.Value.Equals(FolderLevel)))
+                if (!lib.Folders.Any(x => x.Name.Equals(dir.Name, StringComparison.InvariantCultureIgnoreCase) && x.FolderLevel.Value.Equals(FolderLevel)))
                 {
                     Console.WriteLine("Creating new Library folder: {0}", dir.Name);
                     LibraryFolderBase folder = new LibraryFolderBase()
@@ -110,7 +143,7 @@ namespace TCMS
                 }
                 else
                 {
-                    FolderId = lib.Folders.First(x => x.Name.Equals(dir.Name, StringComparison.InvariantCultureIgnoreCase) && x.folderlevel.Value.Equals(FolderLevel)).Id.Value;
+                    FolderId = lib.Folders.First(x => x.Name.Equals(dir.Name, StringComparison.InvariantCultureIgnoreCase) && x.FolderLevel.Value.Equals(FolderLevel)).Id.Value;
                 }
             }
             foreach (string pattern in Filter.Split(';'))

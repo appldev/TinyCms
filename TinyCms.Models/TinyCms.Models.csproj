@@ -63,6 +63,11 @@
     <Compile Include="Models\Extensions\LibraryItem.cs" />
     <Compile Include="Models\Extensions\DataType.cs" />
     <Compile Include="Models\Extensions\Library.cs" />
+    <Compile Include="Models\Extensions\Page.cs" />
+    <Compile Include="Models\Extensions\PageFolder.cs" />
+    <Compile Include="Models\Extensions\PageHost.cs" />
+    <Compile Include="Models\Extensions\PublishedPage.cs" />
+    <Compile Include="Models\Extensions\ReservedRoutes.cs" />
     <Compile Include="Models\FieldBase.cs" />
     <Compile Include="Models\FieldType.cs" />
     <Compile Include="Models\Library.cs" />

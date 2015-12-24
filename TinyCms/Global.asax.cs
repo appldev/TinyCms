@@ -13,13 +13,14 @@ namespace TinyCms
     {
         protected void Application_Start()
         {
+            TinyCmsStartup.Startup();
+            Caching.Initialize();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            // TinyCmsStartup.Startup();
-            // Caching.Initialize();
+            
             // System.Web.Hosting.HostingEnvironment.RegisterVirtualPathProvider(new Providers.TinyCmsVirtualPathProvider());
         }
     }
