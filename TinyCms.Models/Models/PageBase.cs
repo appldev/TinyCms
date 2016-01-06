@@ -16,11 +16,17 @@ namespace TinyCms.Models
 		[PK]
 		public Guid  PageFolderId { get; set; }
 
+		public DateTime  CreatedOn { get; set; }
+
 		public String  Description { get; set; }
 
 		public Guid  Id { get; set; }
 
+		public Boolean  IsExternal { get; set; }
+
 		public String  Model { get; set; }
+
+		public DateTime  ModifiedOn { get; set; }
 
 		[FK("PageAudience","Id","dbo","FK_PageBase_PageAudience")]
 		public Nullable<Int32>  PageAudienceId { get; set; }

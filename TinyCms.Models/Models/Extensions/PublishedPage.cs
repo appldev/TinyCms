@@ -9,15 +9,17 @@ namespace TinyCms.Models
 {
     public partial class PublishedPage
     {
-        public static List<PublishedPage> ByHost(Guid Id)
-        {
-            SqlBuilder builder = SqlBuilder.Select()
-               .From("PublishedPage")
-               .AllColumns()
-               .Where<Guid>("PublishedPage", "PageHostId", SqlOperators.Equal, Id)
-               .Builder();
+        
 
-            return builder.List<PublishedPage>(EnforceTypesafety: false);
-        }
+        //public static List<PublishedPage> ByHost(Guid Id)
+        //{
+        //    SqlBuilder builder = SqlBuilder.Select()
+        //       .From("PublishedPage")
+        //       .AllColumns()
+        //       .Where<Guid>("PublishedPage", "PageHostId", SqlOperators.Equal, Id)
+        //       .Builder();
+
+        //    return builder.List<PublishedPage>(EnforceTypesafety: false);
+        //}
     }
 }

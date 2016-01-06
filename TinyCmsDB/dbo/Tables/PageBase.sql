@@ -10,10 +10,15 @@
     [RequireSsl]     BIT              CONSTRAINT [DF_Page_RequireSsl] DEFAULT ((0)) NOT NULL,
     [PageSecurityId] INT              CONSTRAINT [DF_Page_PageSecurityId] DEFAULT ((0)) NOT NULL,
     [PageAudienceId] INT              NULL,
+    [IsExternal]     BIT              CONSTRAINT [DF_PageBase_IsExternal] DEFAULT ((0)) NOT NULL,
+    [CreatedOn]      DATETIME         CONSTRAINT [DF_PageBase_CreatedOn] DEFAULT (getdate()) NOT NULL,
+    [ModifiedOn]     DATETIME         CONSTRAINT [DF_PageBase_ModifiedOn] DEFAULT (getdate()) NOT NULL,
     CONSTRAINT [PK_PageBase] PRIMARY KEY CLUSTERED ([PageFolderId] ASC, [Name] ASC, [Culture] ASC),
     CONSTRAINT [FK_PageBase_PageAudience] FOREIGN KEY ([PageAudienceId]) REFERENCES [dbo].[PageAudience] ([Id]),
     CONSTRAINT [FK_PageBase_PageFolderBase] FOREIGN KEY ([PageFolderId]) REFERENCES [dbo].[PageFolderBase] ([Id]) ON DELETE CASCADE,
     CONSTRAINT [FK_PageBase_PageSecurity] FOREIGN KEY ([PageSecurityId]) REFERENCES [dbo].[PageSecurity] ([Id]),
     CONSTRAINT [FK_PageBase_PageType] FOREIGN KEY ([PageTypeId], [Culture]) REFERENCES [dbo].[PageType] ([Id], [Culture]) ON UPDATE CASCADE
 );
+
+
 

@@ -5,6 +5,8 @@ using TinySql.Attributes;
 namespace TinyCms.Models
 {	public partial class Page
 {
+		public DateTime  CreatedOn { get; set; }
+
 		public String  Culture { get; set; }
 
 		public Nullable<Guid>  DataTypeId { get; set; }
@@ -21,7 +23,11 @@ namespace TinyCms.Models
 
 		public Guid  Id { get; set; }
 
+		public Boolean  IsExternal { get; set; }
+
 		public String  Model { get; set; }
+
+		public DateTime  ModifiedOn { get; set; }
 
 		public String  Name { get; set; }
 

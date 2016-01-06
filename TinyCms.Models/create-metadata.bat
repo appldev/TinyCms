@@ -1,2 +1,3 @@
 del C:\GitHub\TinyCms\TinyCms.Models\Models\*.cs
 C:\GitHub\TinyCms\TinyCms.Models\TinySql\TSM.exe create con:"server=(localdb)\ProjectsV12;database=TinyCmsDB;Integrated Security=true" out:"C:\GitHub\TinyCms\TinyCms.Models\Models\TinyCmsDB.Metadata.json" class partial namespace:TinyCms.Models folder:"C:\GitHub\TinyCms\TinyCms.Models\Models" wait
+copy C:\GitHub\TinyCms\TinyCms.Models\Models\TinyCmsDB.Metadata.json C:\GitHub\TinyCms\TinyCms\App_Data

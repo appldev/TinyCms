@@ -21,7 +21,7 @@ namespace TinyCms
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             
-            // System.Web.Hosting.HostingEnvironment.RegisterVirtualPathProvider(new Providers.TinyCmsVirtualPathProvider());
+            System.Web.Hosting.HostingEnvironment.RegisterVirtualPathProvider(new Providers.TinyCmsVirtualPathProvider());
         }
     }
 }

@@ -44,8 +44,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TinySql, Version=0.6.4.15767, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TinySql.0.6.6-rc1\lib\net45\TinySql.dll</HintPath>
+    <Reference Include="TinySql, Version=0.6.4.19527, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TinySql.0.7-beta3\lib\net45\TinySql.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -53,6 +53,7 @@
     <Compile Include="Cms\Caching.cs" />
     <Compile Include="Cms\ContentObject.cs" />
     <Compile Include="Cms\TinyCmsPageModel.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Factories\DataTypefactory.cs" />
     <Compile Include="Interfaces\ICachedPage.cs" />
     <Compile Include="Models\DataType.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Models\Extensions\Page.cs" />
     <Compile Include="Models\Extensions\PageFolder.cs" />
     <Compile Include="Models\Extensions\PageHost.cs" />
+    <Compile Include="Models\Extensions\PageSecurity.cs" />
     <Compile Include="Models\Extensions\PublishedPage.cs" />
     <Compile Include="Models\Extensions\ReservedRoutes.cs" />
     <Compile Include="Models\FieldBase.cs" />

@@ -12,6 +12,8 @@ namespace TinyCms.Models
 
 		public String  Defaults { get; set; }
 
+		public Boolean  IsActive { get; set; }
+
 		public Boolean  IsIgnore { get; set; }
 
 		public Boolean  IsSystem { get; set; }
