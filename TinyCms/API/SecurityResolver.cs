@@ -10,7 +10,7 @@ namespace TinyCms.API.Security
 {
     public static class TinyCmsClaimTypes
     {
-        public static readonly string UserAudienceClaim = "uri:TinyCms:AudienceId";
+        public static readonly string UserAudienceClaim = "uri:TinyCms:Claims:AudienceId";
     }
     public interface IUserSecurityResolver
     {

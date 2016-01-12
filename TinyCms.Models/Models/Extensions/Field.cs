@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TinyCms.Models.Interfaces
+namespace TinyCms.Models
 {
-    interface ICachedPage
+    public partial class Field
     {
+        public DataType DataType { get; set; }
+        
     }
 }

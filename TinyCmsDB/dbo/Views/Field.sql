@@ -1,12 +1,18 @@
-﻿CREATE VIEW [dbo].[PublishedPage]
+﻿
+
+
+
+CREATE VIEW [dbo].[Field]
 AS
-SELECT          p.Id,p.Name, p.Culture, ph.Id AS PageHostId, p.PageFolderId, p.PageTypeId, pt.DataTypeId, p.Title, p.Description, p.IsExternal, p.CreatedOn, p.ModifiedOn, CASE WHEN p.PageTypeId  IS NULL THEN p.Model ELSE pt.Html END AS Html, CASE WHEN p.PageTypeId IS NULL THEN NULL ELSE p.Model END AS Model, p.RequireSsl, p.PageSecurityId, p.PageAudienceId, folder.folderlevel as FolderLevel, '/'+ ph.Name + '/' + p.Culture + folder.folderpath + p.Name AS FullPath, CASE p.IsExternal WHEN 0 THEN ph.ViewPath + '/' + p.Culture + folder.folderpath + p.Name + '.cshtml' ELSE '/views' + folder.folderpath + p.Name + '.cshtml' END AS FilePath
-FROM            dbo.PublishedPageBase AS p 
-INNER JOIN		dbo.PageFolder AS folder ON p.PageFolderId = folder.Id
-INNER JOIN		dbo.PageHost AS ph ON folder.PageHostId = ph.Id AND ph.Culture = p.Culture
-LEFT JOIN      dbo.PageType AS pt ON (p.PageTypeId = pt.Id AND p.Culture = pt.Culture)
+SELECT        f.Id, f.Name, f.DisplayName, f.Required, f.UseValidation, f.ValidationMessage, f.ValidationMin, f.ValidationMax, f.MissingValue, f.DefaultValue, f.PlaceHolder, f.HelpText, f.FieldTypeId, ft.Name AS FieldType, 
+                         f.EditorTypeId, et.Name AS EditorName, et.RenderEditor, f.DataTypeId, f.ListProviderId, lp.Type AS ListProviderType, lp.Name AS ListProviderName,  dt.DataTypeId AS ParentId
+FROM            dbo.FieldBase AS f INNER JOIN
+                         dbo.FieldType AS ft ON f.FieldTypeId = ft.Id INNER JOIN
+                         dbo.EditorType AS et ON f.EditorTypeId = et.Id
+						 INNER JOIN DataTypeField dt ON (f.Id= dt.FieldBaseId)
+						 LEFT JOIN ListProvider lp ON (f.ListProviderId = lp.Id)
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'PublishedPage';
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Field';
 
 
 GO
@@ -81,22 +87,32 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "p"
+         Begin Table = "f"
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 136
-               Right = 213
+               Bottom = 288
+               Right = 232
             End
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "folder"
+         Begin Table = "ft"
             Begin Extent = 
-               Top = 6
-               Left = 251
-               Bottom = 136
-               Right = 421
+               Top = 9
+               Left = 349
+               Bottom = 105
+               Right = 519
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "et"
+            Begin Extent = 
+               Top = 145
+               Left = 532
+               Bottom = 258
+               Right = 702
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -127,5 +143,5 @@ Begin DesignProperties =
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'PublishedPage';
+', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Field';
 

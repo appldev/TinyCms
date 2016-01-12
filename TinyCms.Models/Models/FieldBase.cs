@@ -6,10 +6,10 @@ namespace TinyCms.Models
 {	public partial class FieldBase
 {
 		[PK]
-		public Int32  Id { get; set; }
+		public Guid  Id { get; set; }
 
 		[FK("DataTypeBase","Id","dbo","FK_FieldBase_DataTypeBase")]
-		public Guid  DataTypeId { get; set; }
+		public Nullable<Guid>  DataTypeId { get; set; }
 
 		public String  DefaultValue { get; set; }
 
@@ -22,6 +22,11 @@ namespace TinyCms.Models
 		public Int32  FieldTypeId { get; set; }
 
 		public String  HelpText { get; set; }
+
+		public String  ListDefinition { get; set; }
+
+		[FK("ListProvider","Id","dbo","FK_FieldBase_ListProvider")]
+		public Nullable<Guid>  ListProviderId { get; set; }
 
 		public String  MissingValue { get; set; }
 

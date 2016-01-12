@@ -454,6 +454,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\CMS\DataTypes\Editors\_InputEditor.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

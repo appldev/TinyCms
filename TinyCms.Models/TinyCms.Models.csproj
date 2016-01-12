@@ -55,11 +55,15 @@
     <Compile Include="Cms\TinyCmsPageModel.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Factories\DataTypefactory.cs" />
-    <Compile Include="Interfaces\ICachedPage.cs" />
+    <Compile Include="Interfaces\IListProvider.cs" />
     <Compile Include="Models\DataType.cs" />
     <Compile Include="Models\DataTypeBase.cs" />
+    <Compile Include="Models\DataTypeField.cs" />
     <Compile Include="Models\DataTypeScript.cs" />
+    <Compile Include="Models\DataTypeTable.cs" />
+    <Compile Include="Models\DataTypeTableRow.cs" />
     <Compile Include="Models\EditorType.cs" />
+    <Compile Include="Models\Extensions\Field.cs" />
     <Compile Include="Models\Extensions\LibraryFolder.cs" />
     <Compile Include="Models\Extensions\LibraryItem.cs" />
     <Compile Include="Models\Extensions\DataType.cs" />
@@ -70,6 +74,7 @@
     <Compile Include="Models\Extensions\PageSecurity.cs" />
     <Compile Include="Models\Extensions\PublishedPage.cs" />
     <Compile Include="Models\Extensions\ReservedRoutes.cs" />
+    <Compile Include="Models\Field.cs" />
     <Compile Include="Models\FieldBase.cs" />
     <Compile Include="Models\FieldType.cs" />
     <Compile Include="Models\Library.cs" />
@@ -79,6 +84,8 @@
     <Compile Include="Models\LibraryItem.cs" />
     <Compile Include="Models\LibraryItemBase.cs" />
     <Compile Include="Models\LibraryType.cs" />
+    <Compile Include="Models\ListDefinition.cs" />
+    <Compile Include="Models\ListItem.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\PageAudience.cs" />
     <Compile Include="Models\PageBase.cs" />

@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using TinySql.Attributes;
 
 namespace TinyCms.Models
-{	public partial class EditorType
+{	public partial class ListDefinition
 {
 		[PK]
-		public Int32  Id { get; set; }
+		public Guid  Id { get; set; }
 
 		public String  Name { get; set; }
-
-		public String  RenderEditor { get; set; }
 
 	}
 }

@@ -11,10 +11,45 @@ using TinySql;
 namespace TinyCms
 {
 
+    public class IncrementalCmsCache<TKey, T> : CmsCache<TKey, T>
+    {
+        public override Task Initialize(SqlBuilder loadCache, string KeyName, string ValueName = null)
+        {
+            return base.Initialize(loadCache, KeyName, ValueName);
+        }
+
+        public override Task Reload()
+        {
+            return Task.Run(() => { });
+        }
+
+        public override T this[TKey key]
+        {
+            get
+            {
+                T item = base[key];
+                if (item == null || item.Equals(default(T)))
+                {
+                    
+                    List<T> list = init.List<T>(null,30,false,false,key);
+                    if (list.Count != 1)
+                    {
+                        return default(T);
+                    }
+                    item = list.First();
+                    this.Add(key, item);
+                }
+                return item;
+            }
+        }
+
+       
+    }
+
     public class CmsCache<TKey, T>
     {
-        private SqlBuilder init;
-        private ConcurrentDictionary<TKey, T> dict;
+        protected ConcurrentDictionary<TKey, T> dict;
+        protected SqlBuilder init;
         private string _key;
         private string _value;
         IEqualityComparer<TKey> _compare;
@@ -62,7 +97,7 @@ namespace TinyCms
 
 
 
-        public T this[TKey key]
+        public virtual T this[TKey key]
         {
             get
             {
@@ -96,7 +131,7 @@ namespace TinyCms
         {
             return this.dict.ContainsKey(key);
         }
-        public T Get(TKey key, T DefaultValue = default(T))
+        public virtual T Get(TKey key, T DefaultValue = default(T))
         {
             T value = this[key];
             
@@ -107,6 +142,9 @@ namespace TinyCms
             return value;
         }
     }
+
+
+
 
     public class PageHostCache : CmsCache<string, PageHost>
     {
@@ -141,9 +179,34 @@ namespace TinyCms
 
             await this.Initialize(builder, "Name");
         }
+    }
 
+    public class DataTypeCache : CmsCache<Guid,DataType>
+    {
+        
 
+        public async void Initialize()
+        {
+            SqlBuilder builder = SqlBuilder.Select()
+                .From("DataType")
+                .AllColumns()
+                .Builder();
 
+            await this.Initialize(builder, "Id");
+
+            builder = SqlBuilder.Select()
+                .From("Field")
+                .AllColumns()
+                .Builder();
+
+            List<TinyCms.Models.Field> fields = TinySql.Data.All<TinyCms.Models.Field>(EnforceTypesafety: false);
+            foreach (Guid id in dict.Keys)
+            {
+                DataType dt = this.Get(id);
+            }
+        }
+
+        
     }
 
 
